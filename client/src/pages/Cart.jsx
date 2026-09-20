@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {
     FaTrash, FaMinus, FaPlus, FaArrowLeft, FaArrowRight, FaShoppingBag, FaHeart, FaTruck, FaShieldAlt,
-    FaHeadset, FaInstagram, FaTwitter, FaFacebookF, FaTiktok, FaEnvelope, FaPhone
+    FaHeadset
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";

@@ -49,13 +49,6 @@ export const Category = () => {
                                 <div className="category-grid-card">
                                     <div className="category-card-content">
                                         <h3>{item.CategoryName} </h3>
-                                        <button
-                                            type="button"
-                                            className="category-explore-btn"
-                                            onClick={() => navigate(`/CatData/${item.Gender}/${item.CategoryName}`)}
-                                        >
-                                            Explore Collection →
-                                        </button>
                                     </div>
                                 </div>
                             </div>

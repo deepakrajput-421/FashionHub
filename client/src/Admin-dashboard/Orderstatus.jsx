@@ -20,7 +20,7 @@ const OrderStatus = () => {
     const fetchOrders = async () => {
         try {
             const response = await axios.get(
-                "http://localhost:4000/admin/orders",
+                "https://fashionhub-tj47.onrender.com/admin/orders",
                 {
                     withCredentials: true
                 }
@@ -113,7 +113,7 @@ const OrderStatus = () => {
     const updateStatus = async (orderId, newStatus) => {
         try {
             const response = await axios.patch(
-                `http://localhost:4000/updateOrderStatus/${orderId}`,
+                `https://fashionhub-tj47.onrender.com/updateOrderStatus/${orderId}`,
                 {
                     orderStatus: newStatus
                 },
@@ -689,7 +689,7 @@ const OrderStatus = () => {
                                             >
 
                                                 <img
-                                                    src={`http://localhost:4000/uploads/${item.image}`}
+                                                    src={`https://fashionhub-tj47.onrender.com/uploads/${item.image}`}
                                                     alt={
                                                         item.productName ||
                                                         "Product"

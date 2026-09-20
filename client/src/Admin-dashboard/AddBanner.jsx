@@ -16,7 +16,7 @@ const AddBanner = () => {
     const GetBanner = async () => {
         try {
             const res = await axios.get(
-                "http://localhost:4000/getbanner"
+                "https://fashionhub-tj47.onrender.com/getbanner"
             );
 
             setBannerData(res.data.BannerData || []);
@@ -52,7 +52,7 @@ const AddBanner = () => {
 
         try {
             await axios.post(
-                "http://localhost:4000/addbanner",
+                "https://fashionhub-tj47.onrender.com/addbanner",
                 formData,
                 {
                     withCredentials: true
@@ -94,7 +94,7 @@ const AddBanner = () => {
     const DeleteBanner = async (id) => {
         try {
             await axios.delete(
-                `http://localhost:4000/deletebanner/${id}`,
+                `https://fashionhub-tj47.onrender.com/deletebanner/${id}`,
                 {
                     withCredentials: true
                 }
@@ -224,7 +224,7 @@ const AddBanner = () => {
 
                                                     <td>
                                                         <img
-                                                            src={`http://localhost:4000/uploads/banner/${item.image}`}
+                                                            src={`https://fashionhub-tj47.onrender.com/uploads/banner/${item.image}`}
                                                             alt="banner"
                                                             className="banner-preview"
                                                         />

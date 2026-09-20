@@ -27,7 +27,7 @@ export const Cart = () => {
   const fetchCart = async () => {
     try {
         const response = await axios.get(
-            "http://localhost:4000/cart",
+            "https://fashionhub-tj47.onrender.com/cart",
             { withCredentials: true }
         );
 
@@ -57,7 +57,7 @@ export const Cart = () => {
         return item.name || item.ClothName || item.clothname || "Product";
     };
     const getImage = (item) => {
-        return `http://localhost:4000/uploads/${item.image}`;
+        return `https://fashionhub-tj47.onrender.com/uploads/${item.image}`;
     };
 
     const getStock = (item, size) => {
@@ -89,7 +89,7 @@ export const Cart = () => {
 
         try {
             const response = await axios.put(
-                "http://localhost:4000/cart",
+                "https://fashionhub-tj47.onrender.com/cart",
                 {
                     itemId: item.cartItemId,
                     quantity: quantity
@@ -113,7 +113,7 @@ export const Cart = () => {
 
         try {
             const response = await axios.delete(
-                "http://localhost:4000/cart",
+                "https://fashionhub-tj47.onrender.com/cart",
                 {
                     data: {
                         itemId: item.cartItemId
@@ -149,7 +149,7 @@ export const Cart = () => {
 
         try {
             const response = await axios.put(
-                "http://localhost:4000/cart",
+                "https://fashionhub-tj47.onrender.com/cart",
                 {
                     itemId: item.cartItemId,
                     size: newSize
@@ -190,7 +190,7 @@ export const Cart = () => {
 
     try {
         const response = await axios.post(
-            "http://localhost:4000/applycoupon",
+            "https://fashionhub-tj47.onrender.com/applycoupon",
             {
                 code: code,
             },
@@ -260,7 +260,7 @@ export const Cart = () => {
 
         try {
             const response = await axios.post(
-                "http://localhost:4000/cart",
+                "https://fashionhub-tj47.onrender.com/cart",
                 {
                     productId: product._id,
                     quantity: 1,

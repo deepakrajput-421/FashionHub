@@ -38,7 +38,7 @@ const Signup = () => {
 
         try {
             const result = await axios.post(
-                "http://localhost:4000/SendOTP",
+                "https://fashionhub-tj47.onrender.com/SendOTP",
                 {
                     email: SignUp.email
                 }
@@ -93,7 +93,7 @@ const Signup = () => {
                 try {
 
                     const result = await axios.post(
-                        "http://localhost:4000/VerifyOTP",
+                        "https://fashionhub-tj47.onrender.com/VerifyOTP",
                         {
                             ...SignUp,
                             otp: otp
@@ -129,7 +129,7 @@ const Signup = () => {
         else {
             try {
                 const result = await axios.post(
-                    "http://localhost:4000/LoginData", Login, { withCredentials: true });
+                    "https://fashionhub-tj47.onrender.com/LoginData", Login, { withCredentials: true });
                 if (result.data.success) {
                     localStorage.setItem("isLoggedIn", "true");
                     localStorage.setItem("userName", result.data.data.name);

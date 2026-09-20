@@ -11,7 +11,7 @@ export const Banner = () => {
     const GetBanner = async () => {
         try {
             const res = await axios.get(
-                "http://localhost:4000/getbanner",{
+                "https://fashionhub-tj47.onrender.com/getbanner",{
                     withCredentials : true
                 }
             );
@@ -59,7 +59,7 @@ export const Banner = () => {
                     >
 
                         <img
-                            src={`http://localhost:4000/uploads/banner/${item.image}`}
+                            src={`https://fashionhub-tj47.onrender.com/uploads/banner/${item.image}`}
                             className="d-block w-100 bnr-img"
                             alt={item.title}
                         />

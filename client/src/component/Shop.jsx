@@ -72,7 +72,7 @@ const Shop = () => {
         const getProducts = async () => {
             try {
                 const response = await axios.get(
-                    "http://localhost:4000/GetData"
+                    "https://fashionhub-tj47.onrender.com/GetData"
                 );
 
                 const data =
@@ -265,7 +265,7 @@ const Shop = () => {
             return image;
         }
 
-        return `http://localhost:4000/uploads/${image}`;
+        return `https://fashionhub-tj47.onrender.com/uploads/${image}`;
     };
 
     const isOutOfStock = product => {

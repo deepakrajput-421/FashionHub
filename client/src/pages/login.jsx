@@ -14,7 +14,7 @@ export const Login = () => {
     }
     const loginUser = async (event) => {
         event.preventDefault();
-        let res = await axios.post("http://localhost:4000/login", values, { withCredentials: true });
+        let res = await axios.post("https://fashionhub-tj47.onrender.com/login", values, { withCredentials: true });
         if (res.data.success === true) {
             navigate('/dashboard')
         }

@@ -25,7 +25,7 @@ const Contact = () => {
 
         try {
             await axios.post(
-                "http://localhost:4000/contact",
+                "https://fashionhub-tj47.onrender.com/contact",
                 formData
             );
 

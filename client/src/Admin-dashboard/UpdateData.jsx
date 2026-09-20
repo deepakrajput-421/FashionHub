@@ -140,7 +140,7 @@ export const UpdateData = () => {
             }
 
             await axios.put(
-                `http://localhost:4000/NewData/${id}`,
+                `https://fashionhub-tj47.onrender.com/NewData/${id}`,
                 formData , {
                     withCredentials : true
                 }
@@ -166,7 +166,7 @@ export const UpdateData = () => {
         try {
 
             const res = await axios.get(
-                `http://localhost:4000/update/${id}`,
+                `https://fashionhub-tj47.onrender.com/update/${id}`,
                 {
                     withCredentials: true
                 }
@@ -194,7 +194,7 @@ export const UpdateData = () => {
         try {
 
             const res = await axios.get(
-                `http://localhost:4000/getcategory`
+                `https://fashionhub-tj47.onrender.com/getcategory`
             );
 
             setAllCategory(res.data.CData);

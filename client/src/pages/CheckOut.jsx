@@ -33,7 +33,7 @@ const Checkout = () => {
             setLoading(true);
 
             const cartRes = await axios.get(
-                "http://localhost:4000/cart",
+                "https://fashionhub-tj47.onrender.com/cart",
                 {
                     withCredentials: true
                 }
@@ -84,7 +84,7 @@ const Checkout = () => {
             } else {
                 try {
                     const addressRes = await axios.get(
-                        "http://localhost:4000/address",
+                        "https://fashionhub-tj47.onrender.com/address",
                         {
                             withCredentials: true
                         }
@@ -198,7 +198,7 @@ const Checkout = () => {
             return product.image;
         }
 
-        return `http://localhost:4000/uploads/${product.image}`;
+        return `https://fashionhub-tj47.onrender.com/uploads/${product.image}`;
     };
 
     const subtotal = cart.reduce(
@@ -309,7 +309,7 @@ const Checkout = () => {
             }
 
             const response = await axios.post(
-                "http://localhost:4000/create-order",
+                "https://fashionhub-tj47.onrender.com/create-order",
                 {
                     shippingAddress,
                     paymentMethod: "COD",

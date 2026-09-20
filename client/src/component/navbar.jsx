@@ -21,7 +21,7 @@ export const Navbar = () => {
     const GetAllCategory = async () => {
         try {
             const res = await axios.get(
-                "http://localhost:4000/getcategory"
+                "https://fashionhub-tj47.onrender.com/getcategory"
             );
 
             setAllCategory(res.data.CData || []);
@@ -33,7 +33,7 @@ export const Navbar = () => {
     const fetchCartCount = async () => {
         try {
             const res = await axios.get(
-                "http://localhost:4000/cart",
+                "https://fashionhub-tj47.onrender.com/cart",
                 {
                     withCredentials: true
                 }
@@ -50,7 +50,7 @@ export const Navbar = () => {
     const fetchWishlistCount = async () => {
         try {
             const res = await axios.get(
-                "http://localhost:4000/wishlist",
+                "https://fashionhub-tj47.onrender.com/wishlist",
                 {
                     withCredentials: true
                 }

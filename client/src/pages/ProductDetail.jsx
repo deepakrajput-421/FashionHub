@@ -21,11 +21,11 @@ const ProductDetail = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:4000/getproduct/${id}`);
+        const res = await axios.get(`https://fashionhub-tj47.onrender.com/getproduct/${id}`);
         setProduct(res.data);
 
         const relatedRes = await axios.get(
-          `http://localhost:4000/getproductbycategory/${res.data.category}`
+          `https://fashionhub-tj47.onrender.com/getproductbycategory/${res.data.category}`
         );
 
         setRelated(relatedRes.data.filter(item => item._id !== res.data._id));
@@ -43,7 +43,7 @@ const ProductDetail = () => {
     const checkWishlist = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:4000/wishlist",
+          "https://fashionhub-tj47.onrender.com/wishlist",
           {
             withCredentials: true
           }
@@ -77,7 +77,7 @@ const ProductDetail = () => {
   const toggleWishlist = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:4000/wishlist/toggle",
+        "https://fashionhub-tj47.onrender.com/wishlist/toggle",
         {
           productId: product._id
         },
@@ -129,7 +129,7 @@ const ProductDetail = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/cart",
+        "https://fashionhub-tj47.onrender.com/cart",
         {
           productId: product._id,
           quantity: qty,
@@ -182,7 +182,7 @@ const ProductDetail = () => {
       <div className="detail-container mt-5">
         <div className="detail-image mt-3">
           <img
-            src={`http://localhost:4000/uploads/${product.image}`}
+            src={`https://fashionhub-tj47.onrender.com/uploads/${product.image}`}
             alt={product.ClothName}
           />
 
@@ -286,7 +286,7 @@ const ProductDetail = () => {
               >
                 <div className="related-img">
                   <img
-                    src={`http://localhost:4000/uploads/${item.image}`}
+                    src={`https://fashionhub-tj47.onrender.com/uploads/${item.image}`}
                     alt={item.ClothName}
                   />
                 </div>

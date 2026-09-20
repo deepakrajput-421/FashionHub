@@ -9,7 +9,7 @@ export const SideBar = () => {
     const logoutAdmin = async () => {
         try {
             await axios.post(
-                "http://localhost:4000/admin/logout",
+                "https://fashionhub-tj47.onrender.com/admin/logout",
                 {},
                 { withCredentials: true }
             );

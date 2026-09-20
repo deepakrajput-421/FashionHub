@@ -8,7 +8,7 @@ export const ContactMessages = () => {
 
     const GetContactData = async () => {
         try {
-            const result = await axios.get("http://localhost:4000/getcontact");
+            const result = await axios.get("https://fashionhub-tj47.onrender.com/getcontact");
             setContacts(result.data);
         } catch (error) {
             console.log("Get Contact Error:", error);
@@ -21,7 +21,7 @@ export const ContactMessages = () => {
 
     const DeleteContactData = async (id) => {
         try {
-            await axios.delete(`http://localhost:4000/deletecontact/${id}`);
+            await axios.delete(`https://fashionhub-tj47.onrender.com/deletecontact/${id}`);
             GetContactData();
         } catch (error) {
             console.log("Delete Contact Error:", error);

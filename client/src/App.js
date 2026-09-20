@@ -35,7 +35,7 @@ function AdminProtectedRoute({children}) {
   useEffect(() => {
     const checkAdmin = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/admin/me",{withCredentials:true});
+        const res = await axios.get("https://fashionhub-tj47.onrender.com/admin/me",{withCredentials:true});
         if(res.data.success === true){
           setIsAdmin(true);
         }

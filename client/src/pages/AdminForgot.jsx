@@ -24,7 +24,7 @@ export const AdminForgot = () => {
             setLoading(true);
 
             const res = await axios.post(
-                "http://localhost:4000/admin/send-otp",
+                "https://fashionhub-tj47.onrender.com/admin/send-otp",
                 { email }
             );
 
@@ -56,7 +56,7 @@ export const AdminForgot = () => {
             setLoading(true);
 
             const res = await axios.post(
-                "http://localhost:4000/admin/reset-password",
+                "https://fashionhub-tj47.onrender.com/admin/reset-password",
                 {
                     email,
                     otp,

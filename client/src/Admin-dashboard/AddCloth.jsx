@@ -62,7 +62,7 @@ export const AddCloth = () => {
             formData.append("category",Data.category);
             formData.append("sizes",JSON.stringify(sizes));
             formData.append("image",Data.image);
-            await axios.post(`http://localhost:4000/AddData`, formData ,{withCredentials: true}); 
+            await axios.post(`https://fashionhub-tj47.onrender.com/AddData`, formData ,{withCredentials: true}); 
                navigate("/dashboard");
     };
 
@@ -70,7 +70,7 @@ export const AddCloth = () => {
     const [AllCategory, setAllCategory] = useState([]);
 
     const GetAllCategory = async () => {
-            const res = await axios.get(`http://localhost:4000/getcategory`);
+            const res = await axios.get(`https://fashionhub-tj47.onrender.com/getcategory`);
             setAllCategory(
                 res.data.CData
             );

@@ -29,7 +29,7 @@ const Coupon = () => {
     const getCoupons = async () => {
         try {
             const res = await axios.get(
-                "http://localhost:4000/getcoupons",
+                "https://fashionhub-tj47.onrender.com/getcoupons",
                 {
                     withCredentials: true
                 }
@@ -52,7 +52,7 @@ const Coupon = () => {
 
         try {
             const res = await axios.post(
-                "http://localhost:4000/addcoupon",
+                "https://fashionhub-tj47.onrender.com/addcoupon",
                 coupon,
                 {
                     withCredentials: true
@@ -83,7 +83,7 @@ const Coupon = () => {
     const deleteCoupon = async (id) => {
         try {
             const res = await axios.delete(
-                `http://localhost:4000/deletecoupon/${id}`,
+                `https://fashionhub-tj47.onrender.com/deletecoupon/${id}`,
                 {
                     withCredentials: true
                 }

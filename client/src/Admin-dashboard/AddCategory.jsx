@@ -35,7 +35,7 @@ const AddCategory = () => {
 
         try {
             await axios.post(
-                "http://localhost:4000/AddCategory",
+                "https://fashionhub-tj47.onrender.com/AddCategory",
                 CategoryData,
                 {
                     withCredentials: true
@@ -48,7 +48,7 @@ const AddCategory = () => {
             });
 
             const res = await axios.get(
-                "http://localhost:4000/getcategory",
+                "https://fashionhub-tj47.onrender.com/getcategory",
                 {
                     withCredentials: true
                 }
@@ -70,7 +70,7 @@ const AddCategory = () => {
     const GetAllCategory = async () => {
         try {
             const res = await axios.get(
-                'http://localhost:4000/getcategory',
+                'https://fashionhub-tj47.onrender.com/getcategory',
                 {
                     withCredentials: true
                 }
@@ -90,7 +90,7 @@ const AddCategory = () => {
     const DeleteCategory = async (id) => {
         try {
             await axios.delete(
-                `http://localhost:4000/deletecategory/${id}`,
+                `https://fashionhub-tj47.onrender.com/deletecategory/${id}`,
                 {
                     withCredentials: true
                 }

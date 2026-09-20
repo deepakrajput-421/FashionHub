@@ -18,7 +18,7 @@ const Orders = () => {
     const getOrders = async () => {
         try {
             const response = await axios.get(
-                "http://localhost:4000/orders",
+                "https://fashionhub-tj47.onrender.com/orders",
                 {
                     withCredentials: true
                 }
@@ -480,7 +480,7 @@ const Orders = () => {
 
                                                                 {item.image ? (
                                                                     <img
-                                                                        src={`http://localhost:4000/uploads/${item.image}`}
+                                                                        src={`https://fashionhub-tj47.onrender.com/uploads/${item.image}`}
                                                                         alt={item.productName || "Product"}
                                                                     />
                                                                 ) : (

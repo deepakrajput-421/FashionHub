@@ -15,11 +15,11 @@ export const Dashboard = () => {
     const getDashboardData = async () => {
         try {
             const [productResult, orderResult, contactResult] = await Promise.all([
-                axios.get("http://localhost:4000/GetData"),
-                axios.get("http://localhost:4000/admin/orders", {
+                axios.get("https://fashionhub-tj47.onrender.com/GetData"),
+                axios.get("https://fashionhub-tj47.onrender.com/admin/orders", {
                     withCredentials: true
                 }),
-                axios.get("http://localhost:4000/getcontact")
+                axios.get("https://fashionhub-tj47.onrender.com/getcontact")
             ]);
 
             setProducts(productResult.data?.ClothData || []);
@@ -366,7 +366,7 @@ export const Dashboard = () => {
                                             <div className="fh-dashboard-stock-image">
 
                                                 <img
-                                                    src={`http://localhost:4000/uploads/${product.image}`}
+                                                    src={`https://fashionhub-tj47.onrender.com/uploads/${product.image}`}
                                                     alt={product.ClothName}
                                                 />
 

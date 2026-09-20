@@ -35,7 +35,7 @@ const CategoryData = () => {
     const getCategoryData = async () => {
         try {
             const response = await axios.get(
-                `http://localhost:4000/CatData/${gender}/${category}`
+                `https://fashionhub-tj47.onrender.com/CatData/${gender}/${category}`
             );
 
             setProducts(response.data.CategoryData || []);
@@ -47,7 +47,7 @@ const CategoryData = () => {
     const getWishlist = async () => {
         try {
             const response = await axios.get(
-                "http://localhost:4000/wishlist",
+                "https://fashionhub-tj47.onrender.com/wishlist",
                 {
                     withCredentials: true
                 }
@@ -86,7 +86,7 @@ const CategoryData = () => {
 
         try {
             const response = await axios.post(
-                "http://localhost:4000/wishlist/toggle",
+                "https://fashionhub-tj47.onrender.com/wishlist/toggle",
                 {
                     productId
                 },
@@ -144,7 +144,7 @@ const CategoryData = () => {
 
         try {
             await axios.post(
-                "http://localhost:4000/cart",
+                "https://fashionhub-tj47.onrender.com/cart",
                 {
                     productId: item._id,
                     quantity: 1,
@@ -236,7 +236,7 @@ const CategoryData = () => {
                             <div className="catdata-image">
 
                                 <img
-                                    src={`http://localhost:4000/uploads/${item.image}`}
+                                    src={`https://fashionhub-tj47.onrender.com/uploads/${item.image}`}
                                     alt={item.ClothName}
                                 />
 

@@ -17,7 +17,7 @@ const Wishlist = () => {
     const getWishlist = async () => {
         try {
             const res = await axios.get(
-                "http://localhost:4000/wishlist",
+                "https://fashionhub-tj47.onrender.com/wishlist",
                 {
                     withCredentials: true
                 }
@@ -48,7 +48,7 @@ const Wishlist = () => {
     const removeWishlist = async (productId) => {
         try {
             const res = await axios.delete(
-                `http://localhost:4000/wishlist/${productId}`,
+                `https://fashionhub-tj47.onrender.com/wishlist/${productId}`,
                 {
                     withCredentials: true
                 }
@@ -125,7 +125,7 @@ const Wishlist = () => {
                                         }
                                     >
                                         <img
-                                            src={`http://localhost:4000/uploads/${product.image}`}
+                                            src={`https://fashionhub-tj47.onrender.com/uploads/${product.image}`}
                                             alt={product.ClothName}
                                         />
 

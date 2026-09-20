@@ -44,7 +44,7 @@ const Address = () => {
     const getSavedAddress = async () => {
         try {
             const response = await axios.get(
-                "http://localhost:4000/address",
+                "https://fashionhub-tj47.onrender.com/address",
                 {
                     withCredentials: true
                 }
@@ -241,7 +241,7 @@ const Address = () => {
             setSaving(true);
 
             const response = await axios.post(
-                "http://localhost:4000/address",
+                "https://fashionhub-tj47.onrender.com/address",
                 formData,
                 {
                     withCredentials: true

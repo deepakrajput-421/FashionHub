@@ -23,7 +23,7 @@ export const UserForgot = () => {
             setLoading(true);
 
             const res = await axios.post(
-                "http://localhost:4000/forgot-password/send-otp",
+                "https://fashionhub-tj47.onrender.com/forgot-password/send-otp",
                 {
                     email: email.trim().toLowerCase()
                 }
@@ -64,7 +64,7 @@ export const UserForgot = () => {
             setLoading(true);
 
             const res = await axios.post(
-                "http://localhost:4000/forgot-password/reset-password",
+                "https://fashionhub-tj47.onrender.com/forgot-password/reset-password",
                 {
                     email: email.trim().toLowerCase(),
                     otp,

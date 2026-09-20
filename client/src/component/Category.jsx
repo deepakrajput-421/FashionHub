@@ -11,7 +11,7 @@ export const Category = () => {
     const GetAllCategory = async () => {
         try {
             const res = await axios.get(
-                `http://localhost:4000/getcategory`
+                `https://fashionhub-tj47.onrender.com/getcategory`
             );
             setAllCategory(res.data.CData);
         } catch (error) {

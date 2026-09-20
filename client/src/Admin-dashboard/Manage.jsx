@@ -14,7 +14,7 @@ export const Manage = () => {
     const Clothdata = async () => {
         try {
             const result = await axios.get(
-                `http://localhost:4000/GetData`
+                `https://fashionhub-tj47.onrender.com/GetData`
             );
 
             setGetData(result.data.ClothData);
@@ -53,7 +53,7 @@ export const Manage = () => {
         try {
 
             await axios.delete(
-                `http://localhost:4000/deletedata/${id}`,
+                `https://fashionhub-tj47.onrender.com/deletedata/${id}`,
     {
         withCredentials: true
     }
@@ -177,7 +177,7 @@ export const Manage = () => {
                                                     <td>
 
                                                         <img
-                                                            src={`http://localhost:4000/uploads/${item.image}`}
+                                                            src={`https://fashionhub-tj47.onrender.com/uploads/${item.image}`}
                                                             alt={item.ClothName}
                                                             className="cloth-image"
                                                         />

@@ -62,7 +62,7 @@ const Account = () => {
             setAddressLoading(true);
 
             const response = await axios.get(
-                "http://localhost:4000/address",
+                "https://fashionhub-tj47.onrender.com/address",
                 {
                     withCredentials: true
                 }
@@ -121,7 +121,7 @@ const Account = () => {
     const handleLogout = async () => {
         try {
             await axios.post(
-                "http://localhost:4000/logout",
+                "https://fashionhub-tj47.onrender.com/logout",
                 {},
                 {
                     withCredentials: true

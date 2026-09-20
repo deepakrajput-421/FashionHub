@@ -12,7 +12,7 @@ export const Collection = () => {
 
     const Clothdata = async () => {
         try {
-            const result = await axios.get(`http://localhost:4000/GetData`);
+            const result = await axios.get(`https://fashionhub-tj47.onrender.com/GetData`);
             setGetData(result.data.ClothData || []);
         } catch (error) {
             console.log("GET CLOTH ERROR:", error);
@@ -22,7 +22,7 @@ export const Collection = () => {
     const getWishlist = async () => {
         try {
             const response = await axios.get(
-                "http://localhost:4000/wishlist",
+                "https://fashionhub-tj47.onrender.com/wishlist",
                 {
                     withCredentials: true
                 }
@@ -83,7 +83,7 @@ export const Collection = () => {
 
         try {
             const response = await axios.post(
-                "http://localhost:4000/wishlist/toggle",
+                "https://fashionhub-tj47.onrender.com/wishlist/toggle",
                 {
                     productId
                 },
@@ -287,7 +287,7 @@ export const Collection = () => {
                                         <div className="collection-product-image-wrapper">
 
                                             <img
-                                                src={`http://localhost:4000/uploads/${item.image}`}
+                                                src={`https://fashionhub-tj47.onrender.com/uploads/${item.image}`}
                                                 alt={
                                                     item.ClothName ||
                                                     "Product"

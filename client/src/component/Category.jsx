@@ -1,5 +1,5 @@
 import axios from 'axios';
-import react, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './css/Category.css'
 
@@ -45,11 +45,17 @@ export const Category = () => {
                 <div className="row mt-5 text-center">
                     {visibleCategories.map((item, index) => {
                         return (
-                            <div className="col-sm-2 mb-4" key={index} onClick={() =>navigate(`/CatData/${item.Gender}/${item.CategoryName}`) }>
+                            <div className="col-sm-2 mb-4" key={index} onClick={() => navigate(`/CatData/${item.Gender}/${item.CategoryName}`)}>
                                 <div className="category-grid-card">
                                     <div className="category-card-content">
                                         <h3>{item.CategoryName} </h3>
-                                        <a href="#"> Explore Collection → </a>
+                                        <button
+                                            type="button"
+                                            className="category-explore-btn"
+                                            onClick={() => navigate(`/CatData/${item.Gender}/${item.CategoryName}`)}
+                                        >
+                                            Explore Collection →
+                                        </button>
                                     </div>
                                 </div>
                             </div>

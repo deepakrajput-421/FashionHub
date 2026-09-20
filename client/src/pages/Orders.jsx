@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -13,9 +13,9 @@ const Orders = () => {
 
     useEffect(() => {
         getOrders();
-    }, []);
+    }, [getOrders]);
 
-    const getOrders = async () => {
+    const getOrders = useCallback(async () => {
         try {
             const response = await axios.get(
                 "https://fashionhub-tj47.onrender.com/orders",
@@ -42,7 +42,7 @@ const Orders = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [navigate]);
 
     const formatDate = (date) => {
         if (!date) return "Not available";

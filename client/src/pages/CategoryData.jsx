@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { FaHeart } from "react-icons/fa";
@@ -18,7 +18,7 @@ const CategoryData = () => {
     useEffect(() => {
         getCategoryData();
         getWishlist();
-    }, [gender, category]);
+    }, [gender, category, getCategoryData]);
 
     useEffect(() => {
         const updateWishlist = () => {
@@ -32,7 +32,7 @@ const CategoryData = () => {
         };
     }, []);
 
-    const getCategoryData = async () => {
+    const getCategoryData = useCallback(async () => {
         try {
             const response = await axios.get(
                 `https://fashionhub-tj47.onrender.com/CatData/${gender}/${category}`
@@ -42,8 +42,7 @@ const CategoryData = () => {
         } catch (error) {
             console.log("CATEGORY DATA ERROR:", error);
         }
-    };
-
+    }, [gender, category]);
     const getWishlist = async () => {
         try {
             const response = await axios.get(
@@ -242,11 +241,10 @@ const CategoryData = () => {
 
                                 <button
                                     type="button"
-                                    className={`heart-btn ${
-                                        wishlist[String(item._id)]
+                                    className={`heart-btn ${wishlist[String(item._id)]
                                             ? "active"
                                             : ""
-                                    }`}
+                                        }`}
                                     onClick={(e) =>
                                         toggleWishlist(
                                             e,
@@ -307,7 +305,7 @@ const CategoryData = () => {
                                             type="button"
                                             className={
                                                 selectedSizes[item._id] ===
-                                                sizeData.size
+                                                    sizeData.size
                                                     ? "selected"
                                                     : ""
                                             }

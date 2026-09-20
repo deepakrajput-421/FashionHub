@@ -211,12 +211,12 @@ export const UpdateData = () => {
     };
 
 
-    useEffect(() => {
+useEffect(() => {
 
-        Getdata();
-        GetAllCategory();
+    Getdata();
+    GetAllCategory();
 
-    }, []);
+}, [id]);
 
 
     return (

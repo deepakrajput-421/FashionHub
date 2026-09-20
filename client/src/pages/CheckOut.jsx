@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FaMoneyBillWave } from "react-icons/fa";
@@ -26,9 +26,9 @@ const Checkout = () => {
 
     useEffect(() => {
         loadCheckoutData();
-    }, []);
+    }, [loadCheckoutData]);
 
-    const loadCheckoutData = async () => {
+    const loadCheckoutData = useCallback(async () => {
         try {
             setLoading(true);
 
@@ -124,7 +124,7 @@ const Checkout = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [navigate]);
 
     const handleAddressChange = e => {
         const { name, value } = e.target;

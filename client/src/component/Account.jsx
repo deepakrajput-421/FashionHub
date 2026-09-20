@@ -7,7 +7,6 @@ import {
     FaHeart,
     FaShoppingCart,
     FaMapMarkerAlt,
-    FaLock,
     FaSignOutAlt,
     FaUserShield,
     FaSignInAlt

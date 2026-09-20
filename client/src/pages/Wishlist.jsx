@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FaHeart, FaTrash } from "react-icons/fa";
@@ -14,7 +14,7 @@ const Wishlist = () => {
     const [wishlist, setWishlist] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const getWishlist = async () => {
+    const getWishlist = useCallback(async () => {
         try {
             const res = await axios.get(
                 "https://fashionhub-tj47.onrender.com/wishlist",
@@ -39,11 +39,11 @@ const Wishlist = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [navigate]);
 
     useEffect(() => {
         getWishlist();
-    }, []);
+    }, [getWishlist]);
 
     const removeWishlist = async (productId) => {
         try {

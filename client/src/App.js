@@ -66,7 +66,7 @@ function App() {
      <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>}></Route>
-        //admin routes
+       {/* admin routes */}
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/dashboard' element={<AdminProtectedRoute><Dashboard/></AdminProtectedRoute>}></Route>
         <Route path='/add-cloth' element={<AdminProtectedRoute><AddCloth/></AdminProtectedRoute>}></Route>
@@ -80,7 +80,7 @@ function App() {
         <Route path='/order-status' element={<AdminProtectedRoute><OrderStatus/></AdminProtectedRoute>}></Route>
         
 
-        //Pages 
+       {/* Pages */}
         <Route path="/shop" element={<Shop />} />
         <Route path='/Signup' element={<Signup/>}></Route>
         <Route path='/product/:id' element={<ProductDetail/>}></Route>

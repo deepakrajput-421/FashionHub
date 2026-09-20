@@ -1,13 +1,11 @@
 
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import "./category.css";
 import SideBar from "./SideBar";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const AddCategory = () => {
-    const navigate = useNavigate();
     const [CategoryData, setCategoryData] = useState({
         Gender: "",
         CategoryName: ""

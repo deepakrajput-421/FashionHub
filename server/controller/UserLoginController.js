@@ -3,7 +3,7 @@ const SignUpModel = require("../model/SignUpModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const UserLoginData = async(req, res) => {
+const UserLoginData = async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
@@ -48,8 +48,8 @@ const UserLoginData = async(req, res) => {
 
     res.cookie("token", token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
+        secure: true,
+        sameSite: "none",
         maxAge: 7 * 24 * 60 * 60 * 1000
     });
 

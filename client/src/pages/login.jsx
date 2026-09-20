@@ -1,8 +1,8 @@
-import react, { useState } from 'react';
+import { useState } from 'react';
 import axios from "axios";
 import Flogo from '../assest/images/Fashionhub logo.png';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../component/navbar';
+import Navbar from '../component/navbaggtr';
 export const Login = () => {
     const navigate = useNavigate();
     const [values, setValues] = useState({

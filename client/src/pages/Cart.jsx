@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import {
     FaTrash, FaMinus, FaPlus, FaArrowLeft, FaArrowRight, FaShoppingBag, FaHeart, FaTruck, FaShieldAlt,
@@ -17,38 +17,39 @@ export const Cart = () => {
     const [coupon, setCoupon] = useState("");
     const [discount, setDiscount] = useState(0);
 
+    const fetchCart = useCallback(async () => {
+        try {
+            const response = await axios.get(
+                "https://fashionhub-tj47.onrender.com/cart",
+                { withCredentials: true }
+            );
+
+            if (response.data.success) {
+                const formattedCart = (response.data.items || []).map(item => ({
+                    ...item.productId,
+                    cartItemId: item._id,
+                    quantity: item.quantity,
+                    size: item.size
+                }));
+
+                setCart(formattedCart);
+                window.dispatchEvent(new Event("cart-updated"));
+            }
+        } catch (error) {
+            if (error.response?.status === 401) {
+                toast.error("Login required");
+                navigate("/Signup");
+            }
+        }
+    }, [navigate]);
+
     useEffect(() => {
         fetchCart();
 
         const productData = JSON.parse(localStorage.getItem("products")) || [];
         setProducts(Array.isArray(productData) ? productData : []);
-    }, []);
+    }, [fetchCart]);
 
-  const fetchCart = async () => {
-    try {
-        const response = await axios.get(
-            "https://fashionhub-tj47.onrender.com/cart",
-            { withCredentials: true }
-        );
-
-        if (response.data.success) {
-            const formattedCart = (response.data.items || []).map(item => ({
-                ...item.productId,
-                cartItemId: item._id,
-                quantity: item.quantity,
-                size: item.size
-            }));
-
-            setCart(formattedCart);
-            window.dispatchEvent(new Event("cart-updated")); // 👈 add this
-        }
-    } catch (error) {
-        if (error.response?.status === 401) {
-            toast.error("Login required");
-            navigate("/Signup");
-        }
-    }
-};
     const getPrice = (item) => {
         return Number(item.price || item.Price || 0);
     };
@@ -56,6 +57,7 @@ export const Cart = () => {
     const getName = (item) => {
         return item.name || item.ClothName || item.clothname || "Product";
     };
+
     const getImage = (item) => {
         return `https://fashionhub-tj47.onrender.com/uploads/${item.image}`;
     };
@@ -103,7 +105,6 @@ export const Cart = () => {
                 fetchCart();
             }
         } catch (error) {
-            
             toast.error("Unable to update cart");
         }
     };
@@ -127,7 +128,6 @@ export const Cart = () => {
                 fetchCart();
             }
         } catch (error) {
-            
             toast.error("Unable to remove item");
         }
     };
@@ -164,73 +164,72 @@ export const Cart = () => {
                 fetchCart();
             }
         } catch (error) {
-            
             toast.error("Unable to change size");
         }
     };
 
-   const applyCoupon = async () => {
-    const code = coupon.trim().toUpperCase();
+    const applyCoupon = async () => {
+        const code = coupon.trim().toUpperCase();
 
-    if (!code) {
-        toast.error("Enter coupon code");
-        return;
-    }
-
-    const subtotalAmount = cart.reduce(
-        (total, item) =>
-            total + getPrice(item) * (item.quantity || 1),
-        0
-    );
-
-    if (subtotalAmount <= 0) {
-        toast.error("Your cart is empty");
-        return;
-    }
-
-    try {
-        const response = await axios.post(
-            "https://fashionhub-tj47.onrender.com/applycoupon",
-            {
-                code: code,
-            },
-            {
-                withCredentials: true
-            }
-        );
-        if (response.data.success) {
-
-            const appliedDiscount = Number(response.data.discount || 0);
-
-            setDiscount(appliedDiscount);
-
-            sessionStorage.setItem(
-                "checkoutCoupon",
-                JSON.stringify({
-                    code: code,
-                    discount: appliedDiscount
-                })
-            );
-
-            toast.success(
-                `${response.data.coupon} applied successfully`
-            );
-        }
-
-    } catch (error) {
-        setDiscount(0);
-        if (error.response?.status === 401) {
-            toast.error("Please login first");
-            navigate("/Signup");
+        if (!code) {
+            toast.error("Enter coupon code");
             return;
         }
 
-        toast.error(
-            error.response?.data?.message ||
-            "Invalid coupon code"
+        const subtotalAmount = cart.reduce(
+            (total, item) =>
+                total + getPrice(item) * (item.quantity || 1),
+            0
         );
-    }
-};
+
+        if (subtotalAmount <= 0) {
+            toast.error("Your cart is empty");
+            return;
+        }
+
+        try {
+            const response = await axios.post(
+                "https://fashionhub-tj47.onrender.com/applycoupon",
+                {
+                    code: code,
+                },
+                {
+                    withCredentials: true
+                }
+            );
+
+            if (response.data.success) {
+                const appliedDiscount = Number(response.data.discount || 0);
+
+                setDiscount(appliedDiscount);
+
+                sessionStorage.setItem(
+                    "checkoutCoupon",
+                    JSON.stringify({
+                        code: code,
+                        discount: appliedDiscount
+                    })
+                );
+
+                toast.success(
+                    `${response.data.coupon} applied successfully`
+                );
+            }
+        } catch (error) {
+            setDiscount(0);
+
+            if (error.response?.status === 401) {
+                toast.error("Please login first");
+                navigate("/Signup");
+                return;
+            }
+
+            toast.error(
+                error.response?.data?.message ||
+                "Invalid coupon code"
+            );
+        }
+    };
 
     const subtotal = cart.reduce(
         (total, item) =>
@@ -276,8 +275,6 @@ export const Cart = () => {
                 fetchCart();
             }
         } catch (error) {
-            
-
             if (error.response?.status === 401) {
                 toast.error("Login required");
                 navigate("/Signup");
@@ -291,7 +288,8 @@ export const Cart = () => {
     if (cart.length === 0) {
         return (
             <div className="cart-page">
-                     <Navbar/>
+                <Navbar />
+
                 <div className="empty-cart">
 
                     <div className="empty-cart-icon">
@@ -324,7 +322,7 @@ export const Cart = () => {
 
             <Navbar />
 
-            <div className="cart-main ">
+            <div className="cart-main">
 
                 <div className="cart-breadcrumb mt-4">
                     Home
@@ -425,7 +423,11 @@ export const Cart = () => {
 
                                     <div className="cart-actions">
 
-                                        <button onClick={() =>removeItem(index)} >
+                                        <button
+                                            onClick={() =>
+                                                removeItem(index)
+                                            }
+                                        >
                                             <FaTrash />
                                         </button>
 
@@ -443,7 +445,8 @@ export const Cart = () => {
                                             {item.sizes.map((sizeItem, sizeIndex) => {
 
                                                 const stock = Number(sizeItem.stock || 0);
-                                                const selected = item.size === sizeItem.size;
+                                                const selected =
+                                                    item.size === sizeItem.size;
 
                                                 return (
                                                     <div
@@ -461,10 +464,15 @@ export const Cart = () => {
                                                                         : "cart-size-btn"
                                                             }
                                                             onClick={() =>
-                                                                changeSize(index, sizeItem.size)
+                                                                changeSize(
+                                                                    index,
+                                                                    sizeItem.size
+                                                                )
                                                             }
                                                         >
-                                                            <b>{sizeItem.size}</b>
+                                                            <b>
+                                                                {sizeItem.size}
+                                                            </b>
                                                         </button>
 
                                                         <small>
@@ -749,9 +757,10 @@ export const Cart = () => {
 
             </section>
 
+            <About />
 
-           <About/>
         </div>
     );
 };
+
 export default Cart;

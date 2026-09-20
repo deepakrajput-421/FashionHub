@@ -1,28 +1,8 @@
-
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import "./css/welcome.css";
 
 const Welcome = () => {
-    const [userName, setUserName] = useState(localStorage.getItem("userName"));
-    const [search, setSearch] = useState("");
-    const [placeholder, setPlaceholder] = useState("Search products...");
-
-    useEffect(() => {
-        const texts = [
-            "Search shirts...",
-            "Search jeans...",
-            "Search t-shirts...",
-            "Search dresses...",
-            "Search new arrivals..."
-        ];
-        let index = 0;
-        const interval = setInterval(() => {
-            index = (index + 1) % texts.length;
-            setPlaceholder(texts[index]);
-        }, 7000);
-
-        return () => clearInterval(interval);
-    }, []);
+    const [userName] = useState(localStorage.getItem("userName"));
 
     if (!userName) {
         return null;

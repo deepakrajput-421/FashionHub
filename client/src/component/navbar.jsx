@@ -47,6 +47,7 @@ export const Navbar = () => {
             setCartCount(0);
         }
     };
+
     const fetchWishlistCount = async () => {
         try {
             const res = await axios.get(
@@ -68,6 +69,7 @@ export const Navbar = () => {
         GetAllCategory();
         fetchCartCount();
         fetchWishlistCount();
+
         window.addEventListener(
             "cart-updated",
             fetchCartCount
@@ -205,18 +207,14 @@ export const Navbar = () => {
 
                             <li className="fh-navbar-item nav-item dropdown">
 
-                                <a
+                                <button
+                                    type="button"
                                     className="fh-navbar-link nav-link dropdown-toggle"
-                                    href="#"
-                                    role="button"
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false"
-                                    onClick={e =>
-                                        e.preventDefault()
-                                    }
                                 >
                                     Categories
-                                </a>
+                                </button>
 
                                 <ul className="fh-navbar-dropdown dropdown-menu">
 
@@ -237,12 +235,12 @@ export const Navbar = () => {
                                                 }
                                             >
 
-                                                <a
+                                                <button
+                                                    type="button"
                                                     className="fh-navbar-dropdown-item dropdown-item dropdown-toggle"
-                                                    href="#"
                                                 >
                                                     {gender}
-                                                </a>
+                                                </button>
 
                                                 <ul className="fh-navbar-dropdown-submenu dropdown-menu">
 

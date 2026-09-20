@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+
+/* ================= FASHIONHUB NAVBAR ================= */
+
+.fh-navbar {
+    background-color: #fff !important;
+    padding: 0px 0 !important;
+    border-bottom: 1px solid #eeeeee;
+    z-index: 1050;
+}
+
+/* ================= LOGO ================= */
+
+.fh-navbar-brand {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 24px !important;
+    font-weight: 600 !important;
+    color: #111 !important;
+    letter-spacing: .3px;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.fh-navbar-brand:hover {
+    color: #b49b69 !important;
+}
+
+/* ================= NAVIGATION ================= */
+
+.fh-navbar-nav {
+    margin-bottom: 0;
+}
+
+.fh-navbar-link {
+    margin-left: 22px;
+    padding: 8px 0 !important;
+    color: #333 !important;
+    font-weight: 500 !important;
+    font-family: 'Inter', Arial, sans-serif !important;
+    font-size: 14px !important;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.fh-navbar-link:hover,
+.fh-navbar-link:focus {
+    color: #b49b69 !important;
+}
+
+/* ================= CATEGORY ================= */
+
+.fh-navbar-dropdown {
+    border: 1px solid #eee;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+    padding: 6px 0;
+}
+
+.fh-navbar-dropdown-item {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 13px;
+    color: #333;
+    padding: 8px 16px;
+    transition:
+        background-color .15s ease,
+        color .15s ease;
+}
+
+.fh-navbar-dropdown-item:hover,
+.fh-navbar-dropdown-item:focus {
+    background-color: #faf7f0;
+    color: #b49b69;
+}
+
+.fh-navbar-submenu {
+    position: relative;
+}
+
+.fh-navbar-dropdown-submenu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+
+.fh-navbar-submenu:hover > .fh-navbar-dropdown-submenu {
+    display: block;
+}
+
+/* ================= RIGHT ICONS ================= */
+
+.fh-navbar-actions {
+    white-space: nowrap;
+}
+
+.fh-navbar-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #111 !important;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    padding: 2px;
+    transition: color .2s ease;
+}
+
+.fh-navbar-icon:hover {
+    color: #b49b69 !important;
+}
+
+/* ================= INLINE SEARCH ================= */
+
+.fh-navbar-inline-search {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    height: 34px;
+    width: 210px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 8px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.fh-navbar-inline-search > svg {
+    font-size: 17px;
+    flex-shrink: 0;
+}
+
+.fh-navbar-inline-search input {
+    width: 100%;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 13px;
+}
+
+.fh-navbar-inline-search input::placeholder {
+    color: #999;
+}
+
+.fh-navbar-inline-search button {
+    border: none;
+    background: transparent;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: #111;
+    flex-shrink: 0;
+}
+
+.fh-navbar-inline-search button:hover {
+    color: #b49b69;
+}
+
+/* ================= MOBILE SEARCH ================= */
+
+.fh-navbar-mobile-search {
+    display: none !important;
+}
+
+/* ================= WISHLIST BADGE ================= */
+
+.fh-navbar-wishlist-badge {
+    position: absolute;
+    top: -9px;
+    right: -10px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #111;
+    color: #fff;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+/* ================= CART ================= */
+
+.fh-navbar-cart-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fh-navbar-cart-count {
+    position: absolute;
+    top: -10px;
+    right: -12px;
+    background: #111;
+    color: #fff;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+/* ================= MOBILE BUTTON ================= */
+
+.fh-navbar-toggler {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.fh-navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 991px) {
+
+    .fh-navbar-nav {
+        padding-top: 12px;
+        padding-bottom: 6px;
+        gap: 4px !important;
+    }
+
+    .fh-navbar-link {
+        margin-left: 0;
+        padding: 10px 4px !important;
+    }
+
+    .fh-navbar-item {
+        margin: 0;
+    }
+
+    .fh-navbar-actions {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start;
+        gap: 16px !important;
+        padding-bottom: 8px;
+        white-space: nowrap;
+    }
+
+    .fh-navbar-desktop-search {
+        display: none !important;
+    }
+
+    .fh-navbar-mobile-search {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 32px;
+        height: 32px;
+        margin-left: auto !important;
+        margin-right: 8px !important;
+        padding: 2px !important;
+        font-size: 18px !important;
+        flex-shrink: 0;
+    }
+
+    .fh-navbar-inline-search.fh-navbar-mobile-search {
+        justify-content: flex-start;
+        gap: 7px;
+        width: 150px;
+        padding: 0 8px !important;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        margin-left: auto !important;
+        margin-right: 8px !important;
+        background: #fff;
+    }
+
+    .fh-navbar-inline-search.fh-navbar-mobile-search input {
+        width: 100%;
+        min-width: 0;
+        height: 100%;
+        padding: 0;
+        font-size: 12px;
+    }
+
+    .fh-navbar-icon {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 32px;
+        height: 32px;
+        margin: 0 !important;
+        padding: 2px !important;
+        font-size: 18px !important;
+        flex-shrink: 0;
+    }
+
+    .fh-navbar-submenu {
+        position: relative;
+    }
+
+    .fh-navbar-dropdown-submenu {
+        position: static;
+        margin-left: 12px;
+        border: none;
+        box-shadow: none;
+    }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 576px) {
+
+    .fh-navbar-brand {
+        font-size: 20px !important;
+    }
+
+    .fh-navbar {
+        padding: 5px 0 !important;
+    }
+
+    .fh-navbar-actions {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start;
+        gap: 14px !important;
+        padding-bottom: 8px;
+    }
+
+    .fh-navbar-icon {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 30px;
+        height: 30px;
+        margin: 0 !important;
+        padding: 2px !important;
+        font-size: 17px !important;
+        flex-shrink: 0;
+    }
+
+    .fh-navbar-mobile-search {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 30px;
+        height: 30px;
+        margin-left: auto !important;
+        margin-right: 6px !important;
+        padding: 2px !important;
+        font-size: 17px !important;
+        flex-shrink: 0;
+    }
+
+    .fh-navbar-inline-search.fh-navbar-mobile-search {
+        width: 135px;
+        height: 30px;
+        margin-left: auto !important;
+        margin-right: 6px !important;
+        padding: 0 7px !important;
+        gap: 6px;
+    }
+
+    .fh-navbar-inline-search.fh-navbar-mobile-search input {
+        font-size: 12px;
+    }
+
+    .fh-navbar-inline-search.fh-navbar-mobile-search button {
+        font-size: 17px;
+    }
+}

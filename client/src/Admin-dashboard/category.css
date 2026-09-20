@@ -1,0 +1,345 @@
+.admin-category-page {
+  min-height: 100vh;
+  background: #f8f8f8;
+  display: flex;
+}
+
+/* Main Area */
+
+.category-main {
+  flex: 1;
+  padding: 35px 40px;
+  margin-left: 250px;
+}
+
+/* Header */
+
+.category-header {
+  margin-bottom: 30px;
+}
+
+.category-header h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 600;
+  color: #111;
+}
+
+.category-header p {
+  margin-top: 7px;
+  color: #777;
+  font-size: 14px;
+}
+
+/* Content */
+
+.category-content {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+}
+
+/* Add Category */
+
+.add-category-box {
+  width: 35%;
+  background: #fff;
+  padding: 28px;
+  border-radius: 12px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.add-category-box h2 {
+  margin: 0 0 25px;
+  font-size: 20px;
+  color: #111;
+}
+
+.add-category-box label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.add-category-box input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  outline: none;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.add-category-box input:focus {
+  border-color: #111;
+}
+
+.add-category-box button {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 7px;
+  background: #111;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-category-box button:hover {
+  background: #333;
+}
+
+/* Table */
+
+.category-table-box {
+  flex: 1;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.table-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.table-heading h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #111;
+}
+
+.table-heading span {
+  font-size: 13px;
+  color: #777;
+}
+
+/* Table */
+
+.admin-category-page table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #f7f7f7;
+}
+
+.admin-category-page th {
+  text-align: left;
+  padding: 14px;
+  font-size: 13px;
+  color: #555;
+  font-weight: 600;
+}
+
+.admin-category-page td {
+  padding: 15px 14px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #333;
+}
+
+.admin-category-delete-btn {
+  border: none;
+  background: #fff;
+  color: #d33;
+  border: 1px solid #ddd;
+  padding: 7px 13px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.admin-category-delete-btn:hover {
+  background: #111;
+  color: white;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .category-main {
+    margin-left: 0;
+    padding: 25px;
+  }
+
+  .category-content {
+    flex-direction: column;
+  }
+
+  .add-category-box {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .category-table-box {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+/* =========================================
+   CATEGORY PAGE RESPONSIVE CSS
+========================================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .category-content {
+        grid-template-columns: 280px 1fr;
+        gap: 20px;
+    }
+
+    .category-main {
+        padding: 20px;
+    }
+
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    /* Main page */
+    .admin-category-page {
+        width: 100%;
+    }
+
+    .category-main {
+        width: 100%;
+        padding: 20px 15px;
+        box-sizing: border-box;
+    }
+
+    /* Header */
+    .category-header h1 {
+        font-size: 25px;
+    }
+
+    .category-header p {
+        font-size: 14px;
+    }
+
+    /*
+       IMPORTANT:
+       Mobile par Add Category
+       aur Table ek ke neeche ek
+    */
+
+    .category-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+
+    /* Add Category Box */
+    .add-category-box {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .add-category-box input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .add-category-box button {
+        width: 100%;
+    }
+
+    /* Table Box */
+    .category-table-box {
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: auto;
+    }
+
+    /*
+       Table chhoti screen par
+       horizontal scroll hogi
+    */
+    .category-table-box .admin-category-page table {
+        min-width: 500px;
+    }
+
+}
+
+
+/* Small Mobile */
+@media (max-width: 576px) {
+
+    .category-main {
+        padding: 15px 10px;
+    }
+
+    .category-header {
+        margin-bottom: 15px;
+    }
+
+    .category-header h1 {
+        font-size: 22px;
+    }
+
+    .category-header p {
+        font-size: 13px;
+    }
+
+    .category-content {
+        gap: 15px;
+    }
+
+    .add-category-box,
+    .category-table-box {
+        padding: 15px;
+    }
+
+    .add-category-box h2,
+    .table-heading h2 {
+        font-size: 18px;
+    }
+
+    .table-heading {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    /* Pagination mobile */
+    .pagination {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}
+.add-category-box select {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    background: #fff;
+    font-size: 15px;
+    color: #333;
+    cursor: pointer;
+}
+
+.add-category-box select:focus {
+    border-color: #222;
+    box-shadow: none;
+}
+
+.add-category-box select option {
+    color: #333;
+}

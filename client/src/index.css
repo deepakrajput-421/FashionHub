@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+   scroll-behavior: smooth !important;
+}
+
+html{
+    scroll-behavior: smooth !important;
+}
+
+/* login page code */
+
+.Flogo{
+  display: flex;
+  justify-content: center;
+  align-self: center; 
+  margin-top: 20px;
+}
+.Flogo img{
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+}
+
+.LoginFrm{
+   display: flex;
+  margin-bottom: 50px;
+  justify-content: center;
+ padding: 30px;
+ padding-top: 0;
+
+}
+.Frm{
+   width: 500px;
+}
+.frmHeading{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.frmHeading>input{
+  border-radius: 100px;
+  background-color: rgb(239, 239, 237) !important;
+}
+.loginBtn{
+  margin-top: 25px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 4px 20px;
+  background-color: rgb(177, 172, 129) !important;
+  margin-left:180px;
+}
+.loginBtn:hover{
+  background-color: rgb(140, 189, 189) !important;
+}
+
+.ForgotLink {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.ForgotLink button {
+    border: none;
+    background: transparent;
+    color: #d63384;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.ForgotLink button:hover {
+    text-decoration: underline;
+}

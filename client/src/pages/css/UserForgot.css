@@ -1,0 +1,251 @@
+
+.forgot-password-page {
+    min-height: 100vh;
+    width: 100%;
+    background: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forgot-password-container {
+    width: 90%;
+    max-width: 1100px;
+    min-height: 650px;
+    background: #fff;
+    display: flex;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.forgot-password-left {
+    width: 45%;
+    background: #111;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+.forgot-brand-content {
+    width: 100%;
+    text-align: center;
+}
+
+.forgot-brand-logo {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.forgot-brand-logo span {
+    font-weight: 300;
+}
+
+.forgot-brand-line {
+    width: 70px;
+    height: 2px;
+    background: #fff;
+    margin: 25px auto;
+}
+
+.forgot-brand-content h1 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.forgot-brand-content h1 span {
+    display: block;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.forgot-brand-content p {
+    margin-top: 25px;
+    color: #ccc;
+    line-height: 1.7;
+}
+
+.forgot-brand-bottom {
+    margin-top: 120px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #aaa;
+}
+
+.forgot-password-right {
+    width: 55%;
+    padding: 35px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.forgot-back-shop {
+    position: absolute;
+    top: 25px;
+    left: 35px;
+}
+
+.forgot-back-shop button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+}
+
+.forgot-password-box {
+    width: 100%;
+    max-width: 450px;
+    margin: auto;
+}
+
+.forgot-fashionhub-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.forgot-fashionhub-title h2 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 4px;
+}
+
+.forgot-fashionhub-title p {
+    margin: 5px 0 0;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #999;
+}
+
+.forgot-welcome-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.forgot-welcome-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.forgot-welcome-section h3 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.forgot-welcome-section p {
+    color: #888;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.forgot-input-box {
+    margin-bottom: 18px;
+}
+
+.forgot-input-box label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.forgot-input-box input {
+    width: 100%;
+    height: 45px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0 14px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.forgot-input-box input:focus {
+    border-color: #111;
+}
+
+.forgot-message {
+    text-align: center;
+    color: #d63384;
+    font-size: 14px;
+    margin: 12px 0;
+}
+
+.forgot-login-btn {
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    background: #111;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+.forgot-login-btn:hover {
+    background: #333;
+}
+
+.forgot-login-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.forgot-back-login {
+    display: block;
+    width: 100%;
+    border: none;
+    background: transparent;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #444;
+}
+
+.forgot-back-login:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .forgot-password-container {
+        width: 94%;
+        min-height: auto;
+    }
+
+    .forgot-password-left {
+        display: none;
+    }
+
+    .forgot-password-right {
+        width: 100%;
+        padding: 70px 25px 35px;
+    }
+
+    .forgot-password-box {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .forgot-password-right {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .forgot-fashionhub-title h2 {
+        font-size: 24px;
+    }
+
+    .forgot-welcome-section h3 {
+        font-size: 22px;
+    }
+}

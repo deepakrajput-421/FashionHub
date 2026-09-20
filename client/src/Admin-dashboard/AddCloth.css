@@ -1,0 +1,303 @@
+.add-cloth-page {
+    min-height: 100vh;
+    background: #f5f5f5;
+    padding: 25px;
+    display: flex;
+}
+
+.add-cloth-card {
+    width: 100%;
+    max-width: 700px;
+    margin-left: 270px;
+    background: #fff;
+    padding: 28px 32px;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-header span {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.form-header h1 {
+    margin: 5px 0;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.form-header p {
+    margin: 0;
+    color: #777;
+    font-size: 13px;
+}
+
+/* FORM */
+
+.add-cloth-form-group {
+    margin-bottom: 16px;
+}
+
+.add-cloth-form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.add-cloth-form-group input,
+.add-cloth-form-group select {
+    width: 100%;
+    height: 40px;
+    padding: 0 11px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    font-size: 13px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.add-cloth-form-group input:focus,
+.add-cloth-form-group select:focus {
+    border-color: #111;
+}
+
+/* PRICE */
+
+.price-input {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.price-input span {
+    padding-left: 11px;
+    font-weight: 600;
+}
+
+.price-input input {
+    border: none;
+}
+
+/* FOUR FIELDS */
+
+.add-cloth-form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 18px;
+}
+
+/* SIZE STOCK */
+
+.size-stock-container {
+    margin-top: 3px;
+    padding: 14px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    background: #fafafa;
+}
+
+.size-stock-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.size-stock-heading label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.size-stock-heading button {
+    border: none;
+    background: #111;
+    color: #fff;
+    padding: 7px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.size-stock-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 40px;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.size-stock-header span {
+    font-size: 11px;
+    color: #777;
+    font-weight: 600;
+}
+
+.size-stock-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 40px;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.size-stock-row select,
+.size-stock-row input {
+    width: 100%;
+    height: 38px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    background: #fff;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+
+.remove-size {
+    height: 38px;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #d00;
+    border-radius: 4px;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.remove-size:disabled {
+    color: #bbb;
+    cursor: not-allowed;
+}
+
+/* BUTTONS */
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.cancel-btn,
+.add-cloth-submit-btn {
+    height: 40px;
+    padding: 0 24px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.add-cloth-submit-btn {
+    background: #111;
+    color: #fff;
+    border: none;
+}
+
+.add-cloth-submit-btn:hover {
+    background: #333;
+}
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+
+    .add-cloth-card {
+        margin-left: 230px;
+        max-width: 780px;
+    }
+
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .add-cloth-page {
+        padding: 15px;
+    }
+
+    .add-cloth-card {
+        margin-left: 0;
+        max-width: 100%;
+        padding: 24px 20px;
+    }
+
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 600px) {
+
+    .add-cloth-card {
+        padding: 20px 15px;
+    }
+
+    .form-header h1 {
+        font-size: 22px;
+    }
+
+    .form-header p {
+        font-size: 12px;
+    }
+
+    .add-cloth-form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .size-stock-row {
+        grid-template-columns: 1fr 1fr 35px;
+        gap: 7px;
+    }
+
+    .size-stock-header {
+        grid-template-columns: 1fr 1fr 35px;
+        gap: 7px;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .cancel-btn,
+    .add-cloth-submit-btn {
+        width: 100%;
+    }
+
+}
+
+/* EXTRA SMALL */
+
+@media (max-width: 400px) {
+
+    .add-cloth-page {
+        padding: 8px;
+    }
+
+    .add-cloth-card {
+        padding: 18px 12px;
+    }
+
+    .size-stock-container {
+        padding: 10px;
+    }
+
+    .size-stock-heading button {
+        padding: 6px 9px;
+    }
+
+}

@@ -1,0 +1,232 @@
+.add-banner-page {
+    min-height: 100vh;
+    padding: 30px 20px;
+    background: #f7f7f7;
+}
+
+.sidebar-col {
+    padding: 0 45px;
+}
+
+.banner-content {
+    padding: 0 15px;
+}
+
+.banner-upload {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+}
+
+.banner-upload h3,
+.banner-table h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.banner-upload form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.banner-upload input,
+.banner-upload textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+.banner-upload textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.banner-upload button {
+    width: fit-content;
+    border: none;
+    background: #111;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.banner-upload button:hover {
+    background: #333;
+}.banner-table {
+    width: 100%;
+    margin-top: 30px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.banner-table h3 {
+    margin: 0 0 20px;
+    font-size: 21px;
+    font-weight: 700;
+    color: #111;
+}
+
+.banner-table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #eee;
+    border-radius: 10px;
+}
+
+.banner-list-table {
+    width: 100%;
+    min-width: 950px;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.banner-list-table thead {
+    background: #f7f7f7;
+}
+
+.banner-list-table th {
+    padding: 14px 15px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    color: #555;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.banner-list-table td {
+    padding: 14px 15px;
+    text-align: left;
+    font-size: 13px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.banner-list-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.banner-list-table tbody tr:hover {
+    background: #fafafa;
+}
+
+.banner-preview {
+    width: 110px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 7px;
+    display: block;
+}
+
+.banner-list-table td:nth-child(3),
+.banner-list-table td:nth-child(4) {
+    font-weight: 600;
+    color: #222;
+}
+
+.banner-list-table td:nth-child(5) {
+    max-width: 250px;
+    line-height: 1.5;
+}
+
+.delete-banner {
+    border: none;
+    background: #dc3545;
+    color: #fff;
+    padding: 7px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.delete-banner:hover {
+    background: #b02a37;
+}
+
+.banner-no-data {
+    text-align: center !important;
+    padding: 30px !important;
+    color: #888 !important;
+}
+
+.banner-table-responsive::-webkit-scrollbar {
+    height: 7px;
+}
+
+.banner-table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.banner-table-responsive::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.banner-table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+@media (max-width: 900px) {
+    .banner-table {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .banner-table {
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .banner-table h3 {
+        font-size: 18px;
+    }
+
+    .banner-list-table {
+        min-width: 900px;
+    }
+
+    .banner-list-table th {
+        padding: 12px;
+    }
+
+    .banner-list-table td {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .add-banner-page {
+        padding: 20px 10px;
+    }
+
+    .sidebar-col {
+        margin-bottom: 25px;
+    }
+
+    .banner-upload,
+    .banner-table {
+        padding: 18px;
+    }
+
+    .banner-preview {
+        width: 150px;
+        height: 60px;
+    }
+}

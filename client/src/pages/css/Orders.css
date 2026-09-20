@@ -1,0 +1,822 @@
+.orders-user-page {
+    margin-top: 5px !important;
+    min-height: 100vh;
+    padding: 80px 0 80px; /* ✅ increased top padding - fixed Navbar was overlapping content */
+    background: linear-gradient(
+        135deg,
+        #fff 0%,
+        #fff5fa 50%,
+        #f7f3ff 100%
+    );
+}
+
+.orders-user-header {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.orders-brand {
+    margin: 0 0 8px ;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #b52b72;
+}
+
+.orders-user-header h1 {
+    margin :0;
+    text-align: center;
+    font-size: 42px;
+    font-weight: 800;
+    color: #171717;
+}
+
+.orders-user-header > p:last-child {
+    margin: 10px 0 0;
+    color: #777;
+    font-size: 14px;
+}
+
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.order-card {
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #ededed;
+    border-radius: 22px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.07);
+}
+
+.order-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: center;
+    gap: 25px;
+    padding: 22px 28px;
+    background: #fafafa;
+    border-bottom: 1px solid #eee;
+}
+
+.order-id-box,
+.order-created {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0; /* ✅ allows text truncation instead of overflowing grid */
+}
+
+.order-id-box span,
+.order-created span {
+    color: #999;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.order-id-box strong,
+.order-created strong {
+    color: #222;
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.order-status-badge {
+    padding: 9px 17px;
+    border-radius: 30px;
+    background: #eee8ff;
+    color: #6940c0;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+.order-status-badge.cancelled {
+    background: #ffe9e9;
+    color: #d33a3a;
+}
+
+/* DELIVERY */
+
+.delivery-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 22px 28px 0;
+    padding: 16px 18px;
+    border: 1px solid #e9ddff;
+    border-radius: 14px;
+    background: linear-gradient(
+        90deg,
+        #faf7ff,
+        #fff8fc
+    );
+}
+
+.delivery-left {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.delivery-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #fff;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.delivery-left div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.delivery-left span {
+    color: #999;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.delivery-left strong {
+    color: #252525;
+    font-size: 15px;
+}
+
+.delivery-status-text {
+    color: #6940c0;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* TRACKING */
+
+.tracking-section {
+    margin: 22px 28px 0;
+    padding: 22px 20px;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    background: #fff;
+}
+
+.tracking-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.tracking-title strong {
+    font-size: 14px;
+    color: #222;
+}
+
+.tracking-title span {
+    padding: 6px 11px;
+    border-radius: 20px;
+    background: #f6f1ff;
+    color: #6940c0;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.tracking-line {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.tracking-connector {
+    flex: 1;
+    height: 3px;
+    margin-top: 14px;
+    background: #e8e8e8;
+    min-width: 12px; /* ✅ keeps connectors visible on very narrow screens */
+}
+
+.tracking-step {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    min-width: 70px;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.tracking-dot {
+    width: 29px;
+    height: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #eee;
+    color: #999;
+    font-size: 10px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.tracking-dot.active {
+    background: #6940c0;
+    color: #fff;
+    box-shadow: 0 0 0 5px rgba(105, 64, 192, 0.10);
+}
+
+.tracking-step span {
+    color: #999;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.tracking-step.step-active span,
+.tracking-step:has(.tracking-dot.active) span {
+    color: #6940c0;
+}
+
+/* CONTENT */
+
+.order-content {
+    display: grid;
+    grid-template-columns: 1fr 330px;
+    gap: 30px;
+    padding: 28px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.section-title h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 750;
+    color: #222;
+}
+
+.section-title span {
+    color: #999;
+    font-size: 11px;
+}
+
+/* PRODUCTS */
+
+.ordered-products {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ordered-product {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+    border: 1px solid #eee;
+    border-radius: 14px;
+}
+
+.orders-product-image {
+    position: relative;
+    width: 78px !important;
+    height: 92px !important;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #f5f5f5;
+}
+
+.orders-product-image img {
+    width: 100% !important;
+    height:100%!important;
+    object-fit: cover;
+}
+
+.product-image-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f3e8ff, #fde2ef);
+    color: #c084fc;
+    font-size: 22px;
+}
+
+.orders-product-image span {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    padding: 4px 7px;
+    border-radius: 15px;
+    background: #171717;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.orders-product-info {
+    flex: 1;
+    min-width: 0; /* ✅ allows long product names to truncate instead of breaking layout */
+}
+
+.orders-product-info h4 {
+    margin: 0 0 8px;
+    color: #222;
+    font-size: 14px;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.product-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.product-meta span {
+    color: #888;
+    font-size: 11px;
+}
+
+.product-meta strong {
+    color: #333;
+}
+
+.product-unit-price {
+    margin: 7px 0 0;
+    color: #999;
+    font-size: 10px;
+}
+
+.product-total {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.product-total span {
+    color: #999;
+    font-size: 9px;
+}
+
+.product-total strong {
+    color: #222;
+    font-size: 15px;
+}
+
+/* PRICE */
+
+.price-section {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    background: #fafafa;
+}
+
+.orders-price-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 13px;
+    color: #777;
+    font-size: 12px;
+}
+.orders-price-row span {
+    margin-right: 6px; 
+    color: #111;
+}
+
+.orders-price-row strong {
+    color: #222;
+}
+
+.orders-price-row.discount strong {
+    color: #1c9a51;
+}
+
+.price-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 18px;
+    padding-top: 17px;
+    border-top: 1px dashed #ddd;
+}
+
+.price-total span {
+    color: #333;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.price-total strong {
+    color: #111;
+    font-size: 22px;
+}
+
+.payment-box,
+.payment-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px !important;
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    font-size: 10px;
+}
+
+.payment-box span,
+.payment-status span {
+    color: #999;
+}
+
+.payment-box strong,
+.payment-status strong {
+    color: #333;
+    font-size: 11px;
+    text-align: right;
+    text-transform: capitalize;
+}
+
+.payment-status strong.paid {
+    color: #21844d;
+}
+
+/* ADDRESS */
+
+.address-section {
+    padding: 23px 28px;
+    border-top: 1px solid #eee;
+    background: #fcfcfc;
+}
+
+.address-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.address-heading-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.address-icon {
+    width: 39px;
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #f8eef5;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.address-heading h3 {
+    margin: 0 0 3px;
+    color: #333;
+    font-size: 13px;
+}
+
+.address-heading span {
+    color: #999;
+    font-size: 10px;
+}
+
+.phone-number {
+    color: #555;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.address-details {
+    margin: 16px 0 0 51px;
+}
+
+.address-details strong {
+    color: #333;
+    font-size: 13px;
+}
+
+.address-details p {
+    margin: 5px 0 0;
+    color: #777;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* FOOTER */
+
+.order-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 17px 28px;
+    border-top: 1px solid #eee;
+}
+
+.order-footer div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.order-footer span {
+    color: #999;
+    font-size: 9px;
+}
+
+.order-footer strong {
+    color: #555;
+    font-size: 11px;
+}
+
+.order-footer button {
+    border: none;
+    padding: 10px 17px;
+    border-radius: 9px;
+    background: #171717;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* EMPTY */
+
+.empty-orders {
+    max-width: 550px;
+    margin: 40px auto;
+    padding: 60px 30px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 22px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+}
+
+.empty-orders-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f8eef5;
+    font-size: 35px;
+}
+
+.empty-orders h2 {
+    margin: 0 0 10px;
+    font-size: 25px;
+    color: #222;
+}
+
+.empty-orders p {
+    margin: 0 auto 25px;
+    max-width: 420px;
+    color: #888;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.empty-orders button {
+    border: none;
+    padding: 13px 25px;
+    border-radius: 10px;
+    background: #171717;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* LOADING */
+
+.orders-loading {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+}
+
+.orders-spinner {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 15px;
+    border: 3px solid #eee;
+    border-top-color: #b52b72;
+    border-radius: 50%;
+    animation: orderSpin 0.8s linear infinite;
+}
+
+@keyframes orderSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 991px) {
+
+    .order-content {
+        grid-template-columns: 1fr;
+    }
+
+    .price-section {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .orders-user-page {
+        padding: 95px 0 60px; /* ✅ adjusted for fixed navbar on mobile */
+    }
+
+    .orders-user-header h1 {
+        font-size: 32px;
+    }
+
+    .order-header {
+        grid-template-columns: 1fr auto;
+        padding: 18px;
+    }
+
+    .order-created {
+        display: none;
+    }
+
+    .delivery-banner {
+        margin: 18px;
+        flex-wrap: wrap; /* ✅ prevents overflow when both texts don't fit in one row */
+    }
+
+    .delivery-status-text {
+        display: none;
+    }
+
+    .tracking-section {
+        margin: 18px;
+        padding: 18px 10px;
+    }
+
+    .tracking-title {
+        margin-bottom: 20px;
+    }
+
+    .tracking-step {
+        min-width: 55px;
+    }
+
+    .tracking-step span {
+        font-size: 8px;
+    }
+
+    .tracking-dot {
+        width: 27px;
+        height: 27px;
+    }
+
+    .tracking-connector {
+        margin-top: 13px;
+    }
+
+    .order-content {
+        padding: 18px;
+    }
+
+    .ordered-product {
+        padding: 9px;
+    }
+
+    .orders-product-image {
+        width: 65px;
+        height: 78px;
+    }
+
+    .product-total {
+        display: none;
+    }
+
+    .address-section {
+        padding: 20px 18px;
+    }
+
+    .address-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .phone-number {
+        margin-left: 51px;
+    }
+
+    .address-details {
+        margin-left: 0;
+    }
+
+    .order-footer {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 17px 18px;
+    }
+
+    .order-footer button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .orders-user-page {
+        padding: 90px 0 50px;
+    }
+
+    .orders-user-header h1 {
+        font-size: 28px;
+    }
+
+    .order-card {
+        border-radius: 16px;
+    }
+
+    .delivery-banner {
+        padding: 13px;
+    }
+
+    .delivery-left strong {
+        font-size: 13px;
+    }
+
+    .tracking-section {
+        margin: 15px 10px;
+        padding: 15px 5px;
+    }
+
+    .tracking-step {
+        min-width: 50px;
+    }
+
+    .tracking-step span {
+        font-size: 7px;
+    }
+
+    .tracking-dot {
+        width: 24px;
+        height: 24px;
+        font-size: 8px;
+    }
+
+    .tracking-connector {
+        height: 2px;
+        margin-top: 12px;
+    }
+
+    .orders-product-info h4 {
+        font-size: 12px;
+    }
+
+    .product-meta span {
+        font-size: 9px;
+    }
+
+    /* ✅ phone number wraps under address heading cleanly at very narrow widths */
+    .phone-number {
+        margin-left: 0;
+    }
+}

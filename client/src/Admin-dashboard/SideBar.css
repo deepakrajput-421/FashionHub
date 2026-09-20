@@ -1,0 +1,334 @@
+/* ================================
+   SIDEBAR
+================================ */
+
+.admin-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 220px;
+    height: 100vh;
+    background: #ffffff;
+    border-right: 1px solid #e5e5e5;
+    padding: 22px 14px;
+    box-sizing: border-box;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+
+
+.admin-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 5px 20px;
+    border-bottom: 1px solid #eeeeee;
+}
+.admin-logo-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #111111;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.admin-logo-icon span {
+    color: #ffffff;
+}
+
+.admin-logo h2 {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #111111;
+    white-space: nowrap;
+}
+
+.admin-logo h2 span {
+    font-weight: 400;
+}
+
+.admin-logo p {
+    margin: 4px 0 0;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    color: #999999;
+}
+
+
+
+
+.admin-menu-title {
+    margin: 25px 7px 10px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    color: #999999;
+}
+
+
+
+
+.admin-sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+
+
+.admin-menu-item {
+    width: 100%;
+    height: 42px;
+    padding: 0 11px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #555555;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 7px;
+    transition: all 0.2s ease;
+}
+
+.admin-menu-item:hover {
+    background: #f3f3f3;
+
+    color: #111111;
+}
+
+.menu-icon {
+    width: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 16px;
+}
+
+
+
+
+.bottom-title {
+    margin-top: 28px;
+}
+
+.logout {
+    margin-top: 4px;
+    border: none !important;
+    background: none !important;
+}
+
+
+
+
+.admin-user-card {
+    margin-top: 18px;
+
+    padding: 14px 5px 5px;
+
+    border-top: 1px solid #eeeeee;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+}
+
+.admin-user-avatar {
+    width: 35px;
+    height: 35px;
+
+    min-width: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #111111;
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.admin-user-card div:nth-child(2) {
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+.admin-user-card strong {
+    font-size: 11px;
+
+    color: #222222;
+
+    white-space: nowrap;
+}
+
+.admin-user-card small {
+    margin-top: 3px;
+
+    font-size: 9px;
+
+    color: #999999;
+}
+
+.admin-user-card > span {
+    color: #999999;
+
+    font-size: 12px;
+}
+
+
+
+
+.admin-sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.admin-sidebar::-webkit-scrollbar-thumb {
+    background: #dddddd;
+
+    border-radius: 10px;
+}
+
+
+
+
+@media (max-width: 768px) {
+
+    .admin-sidebar {
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+        min-height: auto;
+
+        padding: 15px;
+
+        border-right: none;
+
+        border-bottom: 1px solid #e5e5e5;
+
+        overflow: visible;
+    }
+
+
+    .admin-logo {
+        width: 100%;
+
+        padding-bottom: 15px;
+    }
+
+
+    .admin-menu-title {
+        margin-top: 20px;
+    }
+
+
+    .admin-menu-item {
+        height: 40px;
+    }
+
+
+    .admin-user-card {
+        margin-bottom: 5px;
+    }
+
+}
+
+
+
+
+@media (max-width: 480px) {
+
+    .admin-sidebar {
+        padding: 12px;
+    }
+
+    .admin-logo-icon {
+        width: 36px;
+        height: 36px;
+
+        min-width: 36px;
+    }
+
+    .admin-logo h2 {
+        font-size: 16px;
+    }
+
+    .admin-logo p {
+        font-size: 7px;
+    }
+
+    .admin-menu-item {
+        height: 38px;
+
+        font-size: 12px;
+    }
+
+    .menu-icon {
+        font-size: 15px;
+    }
+
+}
+
+
+
+/* Sidebar responsive layout kept here so dashboard.css cannot affect the sidebar. */
+@media (max-width: 850px) {
+    .admin-sidebar {
+        width: 70px;
+        padding: 20px 10px;
+    }
+    .admin-logo {
+        justify-content: center;
+        padding: 0;
+    }
+    .admin-logo > div:not(.admin-logo-icon),
+    .admin-menu-item span:last-child,
+    .admin-menu-title,
+    .admin-user-card > div:not(.admin-user-avatar),
+    .admin-user-card > span {
+        display: none;
+    }
+    .admin-menu-item {
+        justify-content: center;
+        padding: 0;
+    }
+    .admin-user-card {
+        justify-content: center;
+    }
+}
+@media (max-width: 600px) {
+    .admin-sidebar {
+        display: none;
+    }
+}

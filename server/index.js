@@ -10,10 +10,10 @@ const Mongoose = require("./connection/connection");
 const router = require("./Router/Router");
 
 const app = express();
-app.use(cors({
-    origin: "http://localhost:3000",
+cors({
+    origin: ['http://localhost:3000', 'https://fashion-hub-six-sable.vercel.app'],
     credentials: true
-}));
+})
 
 app.use(cookieParser());
 

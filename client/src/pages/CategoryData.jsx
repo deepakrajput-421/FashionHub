@@ -15,10 +15,7 @@ const CategoryData = () => {
     const [selectedSizes, setSelectedSizes] = useState({});
     const [wishlist, setWishlist] = useState({});
 
-    useEffect(() => {
-        getCategoryData();
-        getWishlist();
-    }, [gender, category, getCategoryData]);
+
 
     useEffect(() => {
         const updateWishlist = () => {
@@ -43,6 +40,10 @@ const CategoryData = () => {
             console.log("CATEGORY DATA ERROR:", error);
         }
     }, [gender, category]);
+        useEffect(() => {
+        getCategoryData();
+        getWishlist();
+    }, [gender, category, getCategoryData]);
     const getWishlist = async () => {
         try {
             const response = await axios.get(

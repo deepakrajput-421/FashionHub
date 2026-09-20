@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import "./AddCloth.css";
 import axios from "axios";
 import SideBar from "./SideBar";
@@ -161,7 +161,7 @@ export const UpdateData = () => {
 
 
     // GET SINGLE DATA
-    const Getdata = async () => {
+    const Getdata = useCallback(async () => {
 
         try {
 
@@ -183,7 +183,7 @@ export const UpdateData = () => {
 
         }
 
-    };
+    }, [id]);
 
 
     // CATEGORY
@@ -216,7 +216,7 @@ useEffect(() => {
     Getdata();
     GetAllCategory();
 
-}, [id]);
+},  [id, Getdata]);
 
 
     return (

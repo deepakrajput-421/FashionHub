@@ -24,10 +24,7 @@ const Checkout = () => {
         pincode: ""
     });
 
-    useEffect(() => {
-        loadCheckoutData();
-    }, [loadCheckoutData]);
-
+  
     const loadCheckoutData = useCallback(async () => {
         try {
             setLoading(true);
@@ -125,6 +122,10 @@ const Checkout = () => {
             setLoading(false);
         }
     }, [navigate]);
+      useEffect(() => {
+        loadCheckoutData();
+    }, [loadCheckoutData]);
+
 
     const handleAddressChange = e => {
         const { name, value } = e.target;

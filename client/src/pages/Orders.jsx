@@ -11,10 +11,7 @@ const Orders = () => {
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        getOrders();
-    }, [getOrders]);
-
+  
     const getOrders = useCallback(async () => {
         try {
             const response = await axios.get(
@@ -43,6 +40,9 @@ const Orders = () => {
             setLoading(false);
         }
     }, [navigate]);
+  useEffect(() => {
+        getOrders();
+    }, [getOrders]);
 
     const formatDate = (date) => {
         if (!date) return "Not available";

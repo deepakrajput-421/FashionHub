@@ -1,7 +1,9 @@
 const SignUpModel = require("../model/SignUpModel");
 const bcrypt = require("bcrypt");
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 const jwt = require("jsonwebtoken");
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const otpStore = {};
 
@@ -34,18 +36,8 @@ const SendOTP = async (req, res) => {
             expires: Date.now() + 3 * 60 * 1000
         };
 
-        const transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 587,
-            secure: false,
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS
-            }
-        });
-
-        await transporter.sendMail({
-            from: process.env.EMAIL_USER,
+        await resend.emails.send({
+            from: "onboarding@resend.dev",
             to: email,
             subject: "FashionHub OTP Verification",
             text: `Your FashionHub OTP is ${otp}. This OTP is valid for 3 minutes.`
@@ -226,162 +218,12 @@ const SignupData = async (req, res) => {
 };
 
 
-const SendForgotOTP = async (req, res) => {
-    try {
-        const email = req.body.email?.trim().toLowerCase();
-
-        if (!email) {
-            return res.status(400).json({
-                success: false,
-                message: "Email is required"
-            });
-        }
-
-        const user = await SignUpModel.findOne({
-            email: { $regex: `^${email}$`, $options: "i" }
-        });
-
-        if (!user) {
-            return res.json({
-                success: false,
-                message: "Email not registered"
-            });
-        }
-
-        const otp = Math.floor(100000 + Math.random() * 900000);
-
-        otpStore[`forgot_${email}`] = {
-            otp: otp,
-            expires: Date.now() + 3 * 60 * 1000
-        };
-
-        const transporter = nodemailer.createTransport({
-            service: "gmail",
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS
-            }
-        });
-
-        await transporter.sendMail({
-            from: process.env.EMAIL_USER,
-            to: email,
-            subject: "FashionHub Password Reset OTP",
-            text: `Your FashionHub password reset OTP is ${otp}. This OTP is valid for 3 minutes.`
-        });
-
-        res.json({
-            success: true,
-            message: "OTP sent successfully"
-        });
-
-    } catch (error) {
-        console.log("FORGOT OTP ERROR:", error);
-
-        res.status(500).json({
-            success: false,
-            message: "OTP sending failed"
-        });
-    }
-};
 
 
-const ResetUserPassword = async (req, res) => {
-    try {
-        const {
-            email,
-            otp,
-            password,
-            confirmPassword
-        } = req.body;
 
-        const normalizedEmail = email?.trim().toLowerCase();
-
-        if (!normalizedEmail || !otp || !password || !confirmPassword) {
-            return res.status(400).json({
-                success: false,
-                message: "All fields are required"
-            });
-        }
-
-        if (password !== confirmPassword) {
-            return res.json({
-                success: false,
-                message: "Passwords do not match"
-            });
-        }
-
-        if (password.length < 8) {
-            return res.json({
-                success: false,
-                message: "Password must be at least 8 characters"
-            });
-        }
-
-        const storedOTP = otpStore[`forgot_${normalizedEmail}`];
-
-        if (!storedOTP) {
-            return res.json({
-                success: false,
-                message: "Please get OTP first"
-            });
-        }
-
-        if (Date.now() > storedOTP.expires) {
-            delete otpStore[`forgot_${normalizedEmail}`];
-
-            return res.json({
-                success: false,
-                message: "OTP expired"
-            });
-        }
-
-        if (Number(otp) !== storedOTP.otp) {
-            return res.json({
-                success: false,
-                message: "Invalid OTP"
-            });
-        }
-
-        const user = await SignUpModel.findOne({
-            email: { $regex: `^${normalizedEmail}$`, $options: "i" }
-        });
-
-        if (!user) {
-            return res.json({
-                success: false,
-                message: "User not found"
-            });
-        }
-
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        user.password = hashedPassword;
-        user.confirm_password = hashedPassword;
-
-        await user.save();
-
-        delete otpStore[`forgot_${normalizedEmail}`];
-
-        res.json({
-            success: true,
-            message: "Password reset successfully"
-        });
-
-    } catch (error) {
-        console.log("RESET PASSWORD ERROR:", error);
-
-        res.status(500).json({
-            success: false,
-            message: "Password reset failed"
-        });
-    }
-};
 
 
 SignupData.SendOTP = SendOTP;
 SignupData.VerifyOTP = VerifyOTP;
-SignupData.SendForgotOTP = SendForgotOTP;
-SignupData.ResetUserPassword = ResetUserPassword;
 
 module.exports = SignupData;

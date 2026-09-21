@@ -104,9 +104,7 @@ router.post("/logout", (req, res) => {
 router.post("/SendOTP", SignupData.SendOTP);
 router.post("/VerifyOTP", SignupData.VerifyOTP);
 
-// User Forgot Password
-router.post("/forgot-password/send-otp", SignupData.SendForgotOTP);
-router.post("/forgot-password/reset-password", SignupData.ResetUserPassword);
+
 
 
 // Banner routes

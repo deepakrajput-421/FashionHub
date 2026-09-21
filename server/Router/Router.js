@@ -36,8 +36,8 @@ router.get("/admin/me", adminMiddleware, (req, res) => {
 router.post("/admin/logout", (req, res) => {
     res.clearCookie("adminToken", {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "strict"
+        secure: true,
+        sameSite: "none"
     });
 
     res.json({

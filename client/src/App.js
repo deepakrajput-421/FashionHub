@@ -27,6 +27,7 @@ import { AdminForgot } from './pages/AdminForgot.jsx';
 import UserForgot from './pages/UserForgot.jsx';
 import Wishlist from './pages/Wishlist.jsx';
 import { ContactMessages } from './Admin-dashboard/ContactMessage.jsx';
+import Loader from './component/Loader';
 
 function AdminProtectedRoute({children}) {
   const [loading,setLoading] = useState(true);
@@ -57,6 +58,19 @@ function AdminProtectedRoute({children}) {
   }
 
   return children;
+}
+const [loading,setLoading] = useState(true);
+
+useEffect(() => {
+    const timer = setTimeout(() => {
+        setLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+}, []);
+
+if(loading){
+    return <Loader />;
 }
 
 function App() {

@@ -8,17 +8,22 @@ export const Category = () => {
     const [AllCategory, setAllCategory] = useState([]);
     const [showAll, setShowAll] = useState(false);
 
-    const GetAllCategory = async () => {
-        try {
-            const res = await axios.get(
-                `https://fashionhub-tj47.onrender.com/getcategory`
-            );
-            setAllCategory(res.data.CData);
-        } catch (error) {
-            console.log("GET CATEGORY ERROR:", error);
-        }
-    };
-
+  const GetAllCategory = async () => {
+    try {
+        const res = await axios.get(
+            `https://fashionhub-tj47.onrender.com/getcategory`
+        );
+        setAllCategory(res.data.CData);
+    } catch (error) {
+        console.log("GET CATEGORY ERROR:", error);
+    } finally {
+        window.dispatchEvent(
+            new CustomEvent("home-section-loaded", {
+                detail: "category"
+            })
+        );
+    }
+};
     useEffect(() => {
         GetAllCategory();
     }, []);

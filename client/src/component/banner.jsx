@@ -8,21 +8,26 @@ export const Banner = () => {
 
     const [banners, setBanners] = useState([]);
 
-    const GetBanner = async () => {
-        try {
-            const res = await axios.get(
-                "https://fashionhub-tj47.onrender.com/getbanner",{
-                    withCredentials : true
-                }
-            );
+  const GetBanner = async () => {
+    try {
+        const res = await axios.get(
+            "https://fashionhub-tj47.onrender.com/getbanner",
+            {
+                withCredentials: true
+            }
+        );
 
-            setBanners(res.data.BannerData);
-
-        } catch (error) {
-            console.log("GET BANNER ERROR:", error);
-        }
-    };
-
+        setBanners(res.data.BannerData);
+    } catch (error) {
+        console.log("GET BANNER ERROR:", error);
+    } finally {
+        window.dispatchEvent(
+            new CustomEvent("home-section-loaded", {
+                detail: "banner"
+            })
+        );
+    }
+};
     useEffect(() => {
         GetBanner();
     }, []);

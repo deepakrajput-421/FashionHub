@@ -57,26 +57,38 @@ export const Collection = () => {
         }
     };
 
-    useEffect(() => {
-        Clothdata();
+  useEffect(() => {
+    const loadCollection = async () => {
+        await Promise.all([
+            Clothdata(),
+            getWishlist()
+        ]);
+
+        window.dispatchEvent(
+            new CustomEvent("home-section-loaded", {
+                detail: "collection"
+            })
+        );
+    };
+
+    loadCollection();
+
+    const handleWishlistUpdate = () => {
         getWishlist();
+    };
 
-        const handleWishlistUpdate = () => {
-            getWishlist();
-        };
+    window.addEventListener(
+        "wishlist-updated",
+        handleWishlistUpdate
+    );
 
-        window.addEventListener(
+    return () => {
+        window.removeEventListener(
             "wishlist-updated",
             handleWishlistUpdate
         );
-
-        return () => {
-            window.removeEventListener(
-                "wishlist-updated",
-                handleWishlistUpdate
-            );
-        };
-    }, []);
+    };
+}, []);
 
     const toggleWishlist = async (event, productId) => {
         event.stopPropagation();

@@ -6,11 +6,11 @@ import { Category } from "./Category";
 import Contact from "./contact";
 import About from "./About";
 import Welcome from "./Welcome";
-import Loader from "./Loader";
+import Loader from "../pages/Loader";
 
 export const Home = () => {
     const [loading, setLoading] = useState(true);
-    const [loadedSections, setLoadedSections] = useState(new Set());
+    const [setLoadedSections] = useState(new Set());
 
     useEffect(() => {
         const handleSectionLoaded = (event) => {

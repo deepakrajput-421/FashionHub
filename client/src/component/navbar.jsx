@@ -65,23 +65,29 @@ export const Navbar = () => {
         }
     };
 
-    useEffect(() => {
-        GetAllCategory();
-        fetchCartCount();
-        fetchWishlistCount();
+   useEffect(() => {
+    const loadNavbarData = async () => {
+        await Promise.all([
+            GetAllCategory(),
+            fetchCartCount(),
+            fetchWishlistCount()
+        ]);
 
-        window.addEventListener(
-            "cart-updated",
-            fetchCartCount
+        window.dispatchEvent(
+            new CustomEvent("home-section-loaded", {
+                detail: "navbar"
+            })
         );
+    };
 
-        return () => {
-            window.removeEventListener(
-                "cart-updated",
-                fetchCartCount
-            );
-        };
-    }, []);
+    loadNavbarData();
+
+    window.addEventListener("cart-updated", fetchCartCount);
+
+    return () => {
+        window.removeEventListener("cart-updated", fetchCartCount);
+    };
+}, []);
 
     const openSearch = () => {
         closeNav();

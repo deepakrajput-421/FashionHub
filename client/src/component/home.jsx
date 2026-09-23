@@ -10,24 +10,59 @@ import Loader from "../pages/Loader";
 
 export const Home = () => {
     const [loading, setLoading] = useState(true);
+    const [loadedSections, setLoadedSections] = useState(new Set());
 
     useEffect(() => {
-        setLoading(false);
-    }, []);
+        fetch("https://fashionhub-tj47.onrender.com/health").catch(() => {});
 
-    if (loading) {
-        return <Loader />;
-    }
+        const handleSectionLoaded = (event) => {
+            const section = event.detail;
+
+            setLoadedSections((prev) => {
+                const updated = new Set(prev);
+                updated.add(section);
+
+                if (
+                    updated.has("navbar") &&
+                    updated.has("banner") &&
+                    updated.has("category") &&
+                    updated.has("collection")
+                ) {
+                    setLoading(false);
+                }
+
+                return updated;
+            });
+        };
+
+        window.addEventListener("home-section-loaded", handleSectionLoaded);
+
+        return () => {
+            window.removeEventListener(
+                "home-section-loaded",
+                handleSectionLoaded
+            );
+        };
+    }, []);
 
     return (
         <>
-            <Navbar />
-            <Welcome />
-            <Banner />
-            <Category />
-            <Collection />
-            <Contact />
-            <About />
+            {loading && <Loader />}
+
+            <div
+                style={{
+                    visibility: loading ? "hidden" : "visible"
+                }}
+            >
+                <Navbar />
+                <Welcome />
+                <Banner />
+                <Category />
+                <Collection />
+                <Contact />
+                <About />
+            </div>
         </>
     );
 };
+

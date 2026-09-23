@@ -30,35 +30,23 @@ export const Navbar = () => {
         }
     };
 
-   useEffect(() => {
-    const loadNavbarData = async () => {
-        await Promise.all([
-            GetAllCategory(),
-            fetchCartCount(),
-            fetchWishlistCount()
-        ]);
+    const fetchCartCount = async () => {
+        try {
+            const res = await axios.get(
+                "https://fashionhub-tj47.onrender.com/cart",
+                {
+                    withCredentials: true
+                }
+            );
 
-        window.dispatchEvent(
-            new CustomEvent("home-section-loaded", {
-                detail: "navbar"
-            })
-        );
+            if (res.data.success) {
+                const items = res.data.items || [];
+                setCartCount(items.length);
+            }
+        } catch (error) {
+            setCartCount(0);
+        }
     };
-
-    loadNavbarData();
-
-    window.addEventListener(
-        "cart-updated",
-        fetchCartCount
-    );
-
-    return () => {
-        window.removeEventListener(
-            "cart-updated",
-            fetchCartCount
-        );
-    };
-}, []);
 
     const fetchWishlistCount = async () => {
         try {
@@ -77,23 +65,23 @@ export const Navbar = () => {
         }
     };
 
-   useEffect(() => {
-    GetAllCategory();
-    fetchCartCount();
-    fetchWishlistCount();
+    useEffect(() => {
+        GetAllCategory();
+        fetchCartCount();
+        fetchWishlistCount();
 
-    window.addEventListener(
-        "cart-updated",
-        fetchCartCount
-    );
-
-    return () => {
-        window.removeEventListener(
+        window.addEventListener(
             "cart-updated",
             fetchCartCount
         );
-    };
-}, []);
+
+        return () => {
+            window.removeEventListener(
+                "cart-updated",
+                fetchCartCount
+            );
+        };
+    }, []);
 
     const openSearch = () => {
         closeNav();

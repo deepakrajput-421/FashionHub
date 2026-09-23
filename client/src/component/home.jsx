@@ -10,7 +10,7 @@ import Loader from "../pages/Loader";
 
 export const Home = () => {
     const [loading, setLoading] = useState(true);
-    const [loadedSections, setLoadedSections] = useState(new Set());
+    const [, setLoadedSections] = useState(new Set());
 
     useEffect(() => {
         const handleSectionLoaded = (event) => {

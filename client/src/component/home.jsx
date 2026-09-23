@@ -10,7 +10,7 @@ import Loader from "../pages/Loader";
 
 export const Home = () => {
     const [loading, setLoading] = useState(true);
-    const [setLoadedSections] = useState(new Set());
+    const [loadedSections, setLoadedSections] = useState(new Set());
 
     useEffect(() => {
         const handleSectionLoaded = (event) => {
@@ -59,3 +59,4 @@ export const Home = () => {
         </>
     );
 };
+

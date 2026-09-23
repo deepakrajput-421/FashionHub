@@ -1,5 +1,5 @@
 import React from "react";
-import "./Loader.css";
+import "./css/Loader.css";
 import Flogo from "../assest/images/Fashionhub logo.png";
 
 const Loader = () => {

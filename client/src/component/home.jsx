@@ -10,37 +10,9 @@ import Loader from "../pages/Loader";
 
 export const Home = () => {
     const [loading, setLoading] = useState(true);
-    const [, setLoadedSections] = useState(new Set());
 
     useEffect(() => {
-        const handleSectionLoaded = (event) => {
-            const section = event.detail;
-
-            setLoadedSections((prev) => {
-                const updated = new Set(prev);
-                updated.add(section);
-
-                if (
-                    updated.has("navbar") &&
-                    updated.has("banner") &&
-                    updated.has("category") &&
-                    updated.has("collection")
-                ) {
-                    setLoading(false);
-                }
-
-                return updated;
-            });
-        };
-
-        window.addEventListener("home-section-loaded", handleSectionLoaded);
-
-        return () => {
-            window.removeEventListener(
-                "home-section-loaded",
-                handleSectionLoaded
-            );
-        };
+        setLoading(false);
     }, []);
 
     if (loading) {
@@ -59,4 +31,3 @@ export const Home = () => {
         </>
     );
 };
-

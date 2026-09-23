@@ -10,8 +10,12 @@ const Mongoose = require("./connection/connection");
 const router = require("./Router/Router");
 
 const app = express();
+
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://fashion-hub-six-sable.vercel.app'],
+    origin: [
+        "http://localhost:3000",
+        "https://fashion-hub-six-sable.vercel.app"
+    ],
     credentials: true
 }));
 
@@ -20,8 +24,16 @@ app.use(cookieParser());
 app.use("/uploads", express.static("uploads"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get("/health", (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "FashionHub server is running"
+    });
+});
+
 app.use(router);
 
 app.listen(process.env.PORT, () => {
-    console.log(`Server is running on http://localhost:${process.env.PORT}`);
+    console.log(`Server is running on port ${process.env.PORT}`);
 });
